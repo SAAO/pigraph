@@ -22,21 +22,7 @@ print """
 			
 			<table border="1" align="center">
 					<tr>
-						<td style="background:#333; width:500px; text-align:center; color:white;"><h2 > Sutherland </h2> </td>
-					</tr>
-					
-					<tr >
-						<td class="myrow" align="center"> <a href="hello.py" target="_blank"><button type="button">1.9m Lower Dome Temperature</button></a></td>
-					</tr>
-					<tr >
-						<td class="myrow" align="center"> 
-
-						
-						
-						
-						
-						
-						</td>
+						<td style="background:#333; width:500px; text-align:center; color:white;"><h2 > 74" Climate Data Logger </h2><br> Please select which sensor's data you would like to view and the date range </td>
 					</tr>
 					<tr >
 						<td class="myrow" align="center">
@@ -58,22 +44,13 @@ print """
 							
 						</td>
 					</tr>
-					<tr >
-						<td class="myrow" align="center"> <a href="http://10.2.55.4:4000" target="_blank"><button type="button" >1.9m Secondary Mirror Temperature</button></a></td>
-					</tr>
-					<tr >
-						<td class="myrow" align="center"> <a href="http://10.2.55.5:4000" target="_blank"><button type="button" >MeerLICHT Dome Temperature</button></a></td>
-					</tr>
-					<tr >
-						<td class="myrow" align="center"> <a href="http://10.2.55.5:4000" target="_blank"><button type="button" >MeerLICHT Dome Humidity</button></a></td>
-					</tr>
 				</table>
 			</div>
 		</div>
 		
 		<footer>
 			<div class="designer" align="center">
-			<p> sig goes here </p>
+			<p> ~J </p>
 			</div>
 		</footer>
 		
