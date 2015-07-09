@@ -69,17 +69,10 @@ class graph_data:
 		y_data=[]
 		#graphing data
 		for x in range(len(self.ydata)):
-			if self.xdata[x].year>=frodate.year:# & (self.xdata[x]<todate): # if the item in the list is not inside the range selected by the user it is deleted
-				if self.xdata[x].month>=frodate.month:
-					if self.xdata[x].day>=frodate.day:
-						x_data.append(self.xdata[x])
-						y_data.append(self.ydata[x])
-					elif self.xdata[x].year>=frodate.year:
-							x_data.append(self.xdata[x])
-							y_data.append(self.ydata[x])
-				elif self.xdata[x].year>frodate.year:
-					x_data.append(self.xdata[x])
-					y_data.append(self.ydata[x])
+			if (self.xdata[x]>=frodate) & (self.xdata[x]<=todate):
+				x_data.append(self.xdata[x])
+				y_data.append(self.ydata[x])
+
 
 
 				
@@ -123,7 +116,7 @@ class graph_data:
 		plt.xlabel('Date Time (dependent on magnification)')
 		plt.title(str(self.xdata[0])+"     to      "+str(self.xdata[len(self.xdata)-1]))
 		plt.grid(b=True, which='both', color='0.65', linestyle='-')
-		#self.fig.autofmt_xdate()
+		self.fig.autofmt_xdate()
 	#def graph_data(*arg):
 
 	
