@@ -65,19 +65,37 @@ class graph_data:
 
 
 	def get_ticks(self, frodate, todate):
+		x_data=[]
+		y_data=[]
 		#graphing data
+		for x in range(len(self.ydata)):
+			if self.xdata[x].year>=frodate.year:# & (self.xdata[x]<todate): # if the item in the list is not inside the range selected by the user it is deleted
+				if self.xdata[x].month>=frodate.month:
+					if self.xdata[x].day>=frodate.day:
+						x_data.append(self.xdata[x])
+						y_data.append(self.ydata[x])
+					elif self.xdata[x].year>=frodate.year:
+							x_data.append(self.xdata[x])
+							y_data.append(self.ydata[x])
+				elif self.xdata[x].year>frodate.year:
+					x_data.append(self.xdata[x])
+					y_data.append(self.ydata[x])
 
-		if (max(self.ydata)-min(self.ydata))>25:
+
+				
+				
+		
+		if (max(y_data)-min(y_data))>25:
 			yinc = 1
-			if(max(self.ydata)-min(self.ydata))>50:
+			if(max(y_data)-min(y_data))>50:
 				yinc = 2
-				if(max(self.ydata)-min(self.ydata))>100:
+				if(max(y_data)-min(y_data))>100:
 					yinc = 4
 		else:
 			yinc = 1
 
-		self.yticks=np.arange(0, max(self.ydata), yinc)
-		self.xticks=np.arange(0, len(self.xdata)-1, 100)
+		self.yticks=np.arange(0, max(y_data), yinc)
+		self.xticks=np.arange(0, len(x_data)-1, 100)
 		self.ax.set_yticks(self.yticks)
 		self.ax.set_xticks(self.xticks)
 		self.ax.yaxis.grid(True, which='minor')
@@ -93,8 +111,8 @@ class graph_data:
 		mondays = WeekdayLocator(MONDAY)
 		months = MonthLocator()
 		monthsFmt = DateFormatter("%b %d")
-
-		self.ax.plot(self.xdata, self.ydata)
+		
+		self.ax.plot(x_data, y_data)
 
 		self.ax.xaxis.set_major_locator(mondays)
 		self.ax.xaxis.set_major_formatter(monthsFmt)
@@ -103,9 +121,9 @@ class graph_data:
 
 		plt.ylabel('Temperature (celsius)')
 		plt.xlabel('Date Time (dependent on magnification)')
-		plt.title("title")
+		plt.title(str(self.xdata[0])+"     to      "+str(self.xdata[len(self.xdata)-1]))
 		plt.grid(b=True, which='both', color='0.65', linestyle='-')
-		self.fig.autofmt_xdate()
+		#self.fig.autofmt_xdate()
 	#def graph_data(*arg):
 
 	
